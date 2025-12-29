@@ -82,79 +82,79 @@ function loadGuess(){
 // Excercise three Solution
 let todo = []; 
 
-// to-do list
-  'use strict'
+// // to-do list
+//   'use strict'
 
-    let my_list=[];
-    let current_task,task_no, task_index,attempts,max_attempts;
+//     let my_list=[];
+//     let current_task,task_no, task_index,attempts,max_attempts;
     
-    const create_list= () => {
-        max_attempts=100;
-        for (attempts=0;attempts<max_attempts;attempts++){
-            current_task=prompt("what do u want to add to your list");
-            if (!current_task) break;
-            my_list.push(current_task);
+//     const create_list= () => {
+//         max_attempts=100;
+//         for (attempts=0;attempts<max_attempts;attempts++){
+//             current_task=prompt("what do u want to add to your list");
+//             if (!current_task) break;
+//             my_list.push(current_task);
             
-        };
-        // console.log(my_list);
-    };
+//         };
+//         // console.log(my_list);
+//     };
 
-    const add_list=()=>{
-        max_attempts=10;
-        for (attempts=0;attempts<max_attempts;attempts++){
-        current_task=prompt("what do u want to add to your list");
-        task_no= +prompt("what is the position of the task you are adding");
-            // alert(typeof(task_no));
-            task_index= task_no - 1;
-            if (!task_no) break;
+//     const add_list=()=>{
+//         max_attempts=10;
+//         for (attempts=0;attempts<max_attempts;attempts++){
+//         current_task=prompt("what do u want to add to your list");
+//         task_no= +prompt("what is the position of the task you are adding");
+//             // alert(typeof(task_no));
+//             task_index= task_no - 1;
+//             if (!task_no) break;
             
-            my_list.splice(task_index,1,current_task);
-        }
-        console.log(my_list)
-    }
+//             my_list.splice(task_index,1,current_task);
+//         }
+//         console.log(my_list)
+//     }
     
-    // alert(`${typeof(my_list)}`)
-    const del_list= () =>{
-            task_no= +prompt("what is the position of the task you want to delete");
-            // alert(typeof(task_no))
-            task_index= task_no - 1;
-            my_list.splice(task_index,1);
-            view_list();
-    }
+//     // alert(`${typeof(my_list)}`)
+//     const del_list= () =>{
+//             task_no= +prompt("what is the position of the task you want to delete");
+//             // alert(typeof(task_no))
+//             task_index= task_no - 1;
+//             my_list.splice(task_index,1);
+//             view_list();
+//     }
 
 
-    const view_list=()=>{
+//     const view_list=()=>{
         
-            alert(`this is your list:${my_list}`);
-            console.log(my_list);
-    }
-    const main=()=>{
-        let choice;
-        do{
-            choice=prompt("what do you want to do? \n1. create tasks\n2. delete task\n3. view list\n4. add task\n5. exit");
-            switch (choice) {
-                case "1":
-                    create_list();
-                    break;
-                case "2":
-                    del_list();
-                    break;
-                case "3":
-                    view_list();
-                    break;
-                case "4":
-                    add_list();
-                    break;
-                case "5":
-                    alert("Goodbye");
-                    break;
-                default:
-                    alert("invalid choice.please choose 1, 2, 3, 4 or 5");
+//             alert(`this is your list:${my_list}`);
+//             console.log(my_list);
+//     }
+//     const main=()=>{
+//         let choice;
+//         do{
+//             choice=prompt("what do you want to do? \n1. create tasks\n2. delete task\n3. view list\n4. add task\n5. exit");
+//             switch (choice) {
+//                 case "1":
+//                     create_list();
+//                     break;
+//                 case "2":
+//                     del_list();
+//                     break;
+//                 case "3":
+//                     view_list();
+//                     break;
+//                 case "4":
+//                     add_list();
+//                     break;
+//                 case "5":
+//                     alert("Goodbye");
+//                     break;
+//                 default:
+//                     alert("invalid choice.please choose 1, 2, 3, 4 or 5");
 
-            }
-        } while(choice!="5");
-    };
-    // main();
+//             }
+//         } while(choice!="5");
+//     };
+//     // main();
 addTask = () => {
     let task = prompt("Enter a task:").toLocaleLowerCase();
     if (task === null) {
@@ -328,4 +328,4 @@ function startBudgetTracker(){
         }   
     }
     
-
+}
