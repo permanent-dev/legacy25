@@ -1,30 +1,30 @@
 console.log("Hello World");
 
 // interactive quiz
-function loadQuiz(){
-    const questions=[
-        {question:"who was the president of Nigeria in 2019 ?", answer:"Mohammed Buhari"},
-        {question:"what is a black man called in the states ?", answer:"nigga"},
-        {question:"how many centimeters are there in a metre ?",answer:"100"},
-        {question:"how many days makes february in a leap year ?", answer:"29"},
-        {question:"at what degree centigrade/celsius does water boil ?", answer:"100"},
-        {question:"how many days make a year ?", answer:"365"},
+function loadQuiz() {
+    const questions = [
+        { question: "who was the president of Nigeria in 2019 ?", answer: "Mohammed Buhari" },
+        { question: "what is a black man called in the states ?", answer: "nigga" },
+        { question: "how many centimeters are there in a metre ?", answer: "100" },
+        { question: "how many days makes february in a leap year ?", answer: "29" },
+        { question: "at what degree centigrade/celsius does water boil ?", answer: "100" },
+        { question: "how many days make a year ?", answer: "365" },
     ];
-    let name=prompt("what is your name");
-    let score=0;
-    for (i=0;i<questions.length;i++) {
-        let userAns=prompt(questions[i].question);
-        if((userAns.trim()==questions[i].answer) )
-            (score+=1, alert("correct"))
-        else if (userAns.trim()!==questions[i].question)
-            (alert("incorrect answer") );
-            
+    let name = prompt("what is your name");
+    let score = 0;
+    for (i = 0; i < questions.length; i++) {
+        let userAns = prompt(questions[i].question);
+        if ((userAns.trim() == questions[i].answer))
+            (score += 1, alert("correct"))
+        else if (userAns.trim() !== questions[i].question)
+            (alert("incorrect answer"));
 
-        
+
+
     };
-    
-    
-    let score1=(score/questions.length) * 100;
+
+
+    let score1 = (score / questions.length) * 100;
     alert(`${name} your scored ${score1}% in this quiz`);
 
 
@@ -42,10 +42,10 @@ function clearOutput2() {
         document.getElementById("GuessingGameOutput").innerHTML = "Attempts: ";
     }
 }
-function loadGuess(){
+function loadGuess() {
     console.log("Starting the guessing game...");
     let randomNumber = Math.floor(Math.random() * 10) + 1;
-    console.log("Random number is: " + randomNumber); 
+    console.log("Random number is: " + randomNumber);
     let attempts = 0;
 
     while (true) {
@@ -80,51 +80,51 @@ function loadGuess(){
 }
 
 // Excercise three Solution
-let todo = []; 
+let todo = [];
 
 // // to-do list
 //   'use strict'
 
-//     let my_list=[];
-//     let current_task,task_no, task_index,attempts,max_attempts;
-    
+let my_list = [];
+let current_task, task_no, task_index, attempts, max_attempts;
+
 //     const create_list= () => {
 //         max_attempts=100;
 //         for (attempts=0;attempts<max_attempts;attempts++){
 //             current_task=prompt("what do u want to add to your list");
 //             if (!current_task) break;
 //             my_list.push(current_task);
-            
+
 //         };
 //         // console.log(my_list);
 //     };
 
-//     const add_list=()=>{
-//         max_attempts=10;
-//         for (attempts=0;attempts<max_attempts;attempts++){
-//         current_task=prompt("what do u want to add to your list");
-//         task_no= +prompt("what is the position of the task you are adding");
-//             // alert(typeof(task_no));
-//             task_index= task_no - 1;
-//             if (!task_no) break;
-            
-//             my_list.splice(task_index,1,current_task);
-//         }
-//         console.log(my_list)
-//     }
-    
+const add_list = () => {
+    max_attempts = 5;
+    for (attempts = 0; attempts < max_attempts; attempts++) {
+        current_task = prompt("what do u want to add to your list");
+        task_no = +prompt("what is the position of the task you are adding");
+        // alert(typeof(task_no));
+        task_index = task_no - 1;
+        if (!task_no) break;
+
+        todo.splice(task_index, 1, current_task);
+    }
+    console.log(my_list)
+}
+
 //     // alert(`${typeof(my_list)}`)
-//     const del_list= () =>{
-//             task_no= +prompt("what is the position of the task you want to delete");
-//             // alert(typeof(task_no))
-//             task_index= task_no - 1;
-//             my_list.splice(task_index,1);
-//             view_list();
-//     }
+// const del_list = () => {
+//     task_no = +prompt("what is the position of the task you want to delete");
+//     // alert(typeof(task_no))
+//     task_index = task_no - 1;
+//     my_list.splice(task_index, 1);
+//     view_list();
+// }
 
 
 //     const view_list=()=>{
-        
+
 //             alert(`this is your list:${my_list}`);
 //             console.log(my_list);
 //     }
@@ -172,10 +172,11 @@ addTask = () => {
 
     todo.push(task);
     console.log("Task added: " + task);
+    alert("Task added");
     console.log("Your Todolist items: " + todo.join(", "));
 }
 
-deleteTask = () =>{
+deleteTask = () => {
     let tasktodelete = prompt("Enter the task you want to delete:").toLocaleLowerCase();
     if (tasktodelete === null) {
         alert("Task deletion cancelled.");
@@ -206,22 +207,23 @@ displayTasks = () => {
         taskList += `${index + 1}. ${task}\n`;
     });
     alert(taskList);
+    localStorage.setItem(taskList);
     console.log("Your Todo list:", todo.toString());
 }
 
-ClearTodo = () =>{
+ClearTodo = () => {
     if (todo.length === 0) {
         console.log("Todo list is empty.");
         alert("Your todo list is already empty.");
         return;
     }
-    todo.length = 0; 
+    todo.length = 0;
     alert("Your todo list has been cleared.");
     console.log("Todo list cleared.");
 }
 
 //Excercise 4 Solution
-function startTip(){
+function startTip() {
     bill = prompt("Enter your bill amount");
     if (isNaN(bill) || bill.trim() === "") {
         console.log("Enter a valid number")
@@ -234,10 +236,10 @@ function startTip(){
         alert("Enter a valid number")
         return
     }
-    
+
     newbill = Number(bill);
     tip = Number(tippercentage);
-    if (tip > 100){
+    if (tip > 100) {
         alert("Tip value Exceeded");
         return
     }
@@ -248,7 +250,7 @@ function startTip(){
 }
 
 // Excercise 5 solution
-function loginSimulation(){
+function loginSimulation() {
     credentials = [
         user1 = {
             username: "user1",
@@ -263,13 +265,13 @@ function loginSimulation(){
             password: "password3"
         },
         user4 = {
-            username: "user4",
-            password: "password4"
+            username: "mercy",
+            password: "euphoria"
         }
     ]
 
     console.log("Login info" + credentials);
-        
+
     username = prompt("Enter your username:");
     password = prompt("Enter your password:");
 
@@ -284,14 +286,14 @@ function loginSimulation(){
     }
 
     let userFound = false;
-    for (let i = 0; i < credentials.length; i++){
+    for (let i = 0; i < credentials.length; i++) {
         if (credentials[i].username === username && credentials[i].password === password) {
             userFound = true;
             alert("Access Granted! Welcome " + username + "!");
             console.log("Access Granted for user: " + username);
             break;
         }
-        else{
+        else {
             userFound = false;
             console.log("Access Granted for user: " + username);
             alert("Login failed! Incorrect username or password.");
@@ -301,7 +303,7 @@ function loginSimulation(){
 }
 
 //Excercise 6 Solutions
-function startBudgetTracker(){
+function startBudgetTracker() {
     income = prompt("Enter your monthly income:");
     if (isNaN(income) || income.trim() === "") {
         alert("Please enter a valid income amount.");
@@ -314,18 +316,18 @@ function startBudgetTracker(){
         return;
     }
 
-    for (let i=0; i < items_number; i++){
-        items = prompt(`Enter your Item ${i+1} Price: `);
+    for (let i = 0; i < items_number; i++) {
+        items = prompt(`Enter your Item ${i + 1} Price: `);
         if (isNaN(items) || items.trim() === "") {
             alert("Please enter a valid item price.");
-            i--; 
+            i--;
             continue;
         }
         if (i === 0) {
             total = Number(items);
         } else {
             total += Number(items);
-        }   
+        }
     }
-    
+
 }
