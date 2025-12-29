@@ -79,7 +79,8 @@ function loadGuess(){
     result.innerHTML = "Attempts: " + attempts + "<br>Random Number: " + randomNumber;
 }
 
-
+// Excercise three Solution
+let todo = []; 
 
 // to-do list
   'use strict'
@@ -154,66 +155,177 @@ function loadGuess(){
         } while(choice!="5");
     };
     // main();
-
-
-    // bill-tip calculator
-
-    function calc(){
-        let totalBill;
-        let Name= prompt("fill in your name")
-        let bill=Number(prompt("enter your bill amount:"));
-        let tip=Number(prompt("enter your tip percentage (%):"));
-        let tipValue= tip/100 * bill;
-        // let currency=prompt("what currency?");
-
-        // do{
-        //     currency=prompt("what currency? \n1. $\n2. £ \n3. € \n4. none of the above ")
-        //     switch (currency){
-        //          case "1":
-        //             "$";
-        //             break;
-        //         case "2":
-        //             "£";
-        //             break;
-        //         case "3":
-        //             "€";
-        //             break;
-        //         case "4":
-        //             alert("exiting");
-        //             break;
-        //         default:
-        //             alert("invalid choice,please choose from the options");
-        //     }
-        // } while(currency!="4");
-        
-        totalBill= bill + tipValue;
-        alert(`${Name}, \n Totalbill is: ${totalBill}`);
-        console.log(`${Name}, \n Totalbill is:${totalBill}`);
-         result = document.getElementById("calcdisplay");
-    result.innerHTML = Name + "                                                                                                                                                                                                                                                                                                                                                             your bill is: " + totalBill;
-
+addTask = () => {
+    let task = prompt("Enter a task:").toLocaleLowerCase();
+    if (task === null) {
+        alert("Task input cancelled.");
+        return;
+    }
+    if (task.trim() === "") {
+        alert("Please enter a task.");
+        return;
+    }
+    if (todo.includes(task)) {
+        alert("This task already exists in your todo list.");
+        return;
     }
 
-        'use strict'
-    function siteAccess(){
-        let userDetails=[
-            {username:"israelite" , answer:"power17"},
-            {username:"gordon" , answer:"extercy"},
-            {username:"deborah" , answer:"girlpower17"},
-        ];
-        alert("To login enter the foloing details \n1. username \n2. password");
-        let Username=prompt("Enter your username");
-        let Password=prompt("Enter your password");
+    todo.push(task);
+    console.log("Task added: " + task);
+    console.log("Your Todolist items: " + todo.join(", "));
+}
 
-        for (i=0;i< userDetails.length;i++){
-            if ((Username===userDetails[i].username) && (Password===userDetails[i].answer))
-                (alert("acces granted"))
-            else if((Username!==userDetails[i].username) || (Password!==userDetails[i].answer))
-                    (alert("check your username or password and try again"));
-        };
+deleteTask = () =>{
+    let tasktodelete = prompt("Enter the task you want to delete:").toLocaleLowerCase();
+    if (tasktodelete === null) {
+        alert("Task deletion cancelled.");
+        return;
+    }
+    if (tasktodelete.trim() === "") {
+        alert("Please enter a task to delete.");
+        return;
+    }
+    if (!todo.includes(tasktodelete)) {
+        alert("This task does not exist in your todo list.");
+        return;
+    }
+    const indexofitem = todo.indexOf(tasktodelete);
+    todo.splice(indexofitem, 1);
+    alert(`Task "${tasktodelete}" removed.`);
+    console.log("Updated Todolist:", todo);
+}
+
+displayTasks = () => {
+    if (todo.length === 0) {
+        alert("Your todo list is empty.");
+        console.log("Todo list is empty.");
+        return;
+    }
+    let taskList = "Your Todo List:\n";
+    todo.forEach((task, index) => {
+        taskList += `${index + 1}. ${task}\n`;
+    });
+    alert(taskList);
+    console.log("Your Todo list:", todo.toString());
+}
+
+ClearTodo = () =>{
+    if (todo.length === 0) {
+        console.log("Todo list is empty.");
+        alert("Your todo list is already empty.");
+        return;
+    }
+    todo.length = 0; 
+    alert("Your todo list has been cleared.");
+    console.log("Todo list cleared.");
+}
+
+//Excercise 4 Solution
+function startTip(){
+    bill = prompt("Enter your bill amount");
+    if (isNaN(bill) || bill.trim() === "") {
+        console.log("Enter a valid number")
+        alert("Enter a valid number")
+        return
+    }
+    tippercentage = prompt("Enter Tip Percentage (0 - 100%)")
+    if (isNaN(tippercentage) || tippercentage.trim() === "") {
+        console.log("Enter a valid number")
+        alert("Enter a valid number")
+        return
+    }
+    
+    newbill = Number(bill);
+    tip = Number(tippercentage);
+    if (tip > 100){
+        alert("Tip value Exceeded");
+        return
+    }
+
+    tip_amount = (tip * 0.01) * newbill;
+    total_amount = newbill + tip_amount;
+    alert("Tip amount is: " + tip_amount + "\n" + "Your Total amount is: " + total_amount);
+}
+
+// Excercise 5 solution
+function loginSimulation(){
+    credentials = [
+        user1 = {
+            username: "user1",
+            password: "password1"
+        },
+        user2 = {
+            username: "user2",
+            password: "password2"
+        },
+        user3 = {
+            username: "user3",
+            password: "password3"
+        },
+        user4 = {
+            username: "user4",
+            password: "password4"
+        }
+    ]
+
+    console.log("Login info" + credentials);
         
+    username = prompt("Enter your username:");
+    password = prompt("Enter your password:");
 
+    if (username === null || password === null) {
+        alert("Login cancelled.");
+        return;
+    }
 
+    if (username.trim() === "" || password.trim() === "") {
+        alert("Please enter both username and password.");
+        return;
+    }
+
+    let userFound = false;
+    for (let i = 0; i < credentials.length; i++){
+        if (credentials[i].username === username && credentials[i].password === password) {
+            userFound = true;
+            alert("Access Granted! Welcome " + username + "!");
+            console.log("Access Granted for user: " + username);
+            break;
+        }
+        else{
+            userFound = false;
+            console.log("Access Granted for user: " + username);
+            alert("Login failed! Incorrect username or password.");
+            break;
+        }
+    }
+}
+
+//Excercise 6 Solutions
+function startBudgetTracker(){
+    income = prompt("Enter your monthly income:");
+    if (isNaN(income) || income.trim() === "") {
+        alert("Please enter a valid income amount.");
+        return;
+    }
+
+    items_number = prompt("How many items do you want to add to your budget tracker?");
+    if (isNaN(items_number) || items_number <= 0) {
+        alert("Please enter a valid number of items.");
+        return;
+    }
+
+    for (let i=0; i < items_number; i++){
+        items = prompt(`Enter your Item ${i+1} Price: `);
+        if (isNaN(items) || items.trim() === "") {
+            alert("Please enter a valid item price.");
+            i--; 
+            continue;
+        }
+        if (i === 0) {
+            total = Number(items);
+        } else {
+            total += Number(items);
+        }   
     }
     
 

@@ -18,48 +18,48 @@
         padding: 2rem;
         border-radius: 8px;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        justify-content: center;
-       
       }
+      @media (min-width:200px) and (max-width:640px) {
+     .container {
+        max-width: 600px;
+        margin: auto;
+        background: white;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        justify-content: center;
+     }
       #container{
-         display:grid;
-        grid-template-columns:repeat(3,1fr);
-        gap: 19px;
+         display:flex;
+         flex-direction: column;
+         gap: 19px;
       }
       #exercise{
-        border: 2px ridge #443810;
-        border-radius: 18px;
-        padding: 30px;
+        min-width:150px;
         justify-content: center;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
-      }
-      #exercise:hover{
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
-        /* animation:hover1 10s alternate 1s 1 normal cubic-bezier(0.165, 0.84, 0.44, 1) ; */
-        
-      }
-      button {
-        padding: 0.5rem 1rem;
-        margin-top: 1rem;
-        background: #007bff;
-        color: white;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-      }
-      button:hover {
-        background: #0056b3;
+        margin: 0 auto;
       }
       #button{
-        display: grid;
-        grid-template-columns: repeat(2,1fr);
-        gap: 20px;
+        display: flex;
+        flex-direction: column;
       }
-      #output {
-        margin-top: 1.5rem;
-        font-weight: bold;
+ @media (min-width:641px) and (max-width:800px){
+    .container {
+        max-width: 600px;
+        margin: auto;
+        background: white;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        justify-content: center;
+     }
+      #container{
+         display:grid;
+        grid-template-columns:repeat(2,1fr);
+        gap: 15px;
       }
+  }
+
     </style>
   </head>
   <body>
